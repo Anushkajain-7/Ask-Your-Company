@@ -18,7 +18,7 @@ gets its own isolated knowledge base.
 - **Demo workspace:** `Demo Company`
 - **Demo email:** `admin@demo.com`
 - **Demo password:** `supersecret1`
-- **Loom walkthrough:** _add your 5-min Loom link here before final submission_
+- **Live deployed:** (https://my-project-4-indol.vercel.app/index.html)
 
 The prepared demo workspace contains 5 sources, 7 uploaded documents, 2
 near-duplicate revision uploads marked `needs_review`, and at least 20 demo
