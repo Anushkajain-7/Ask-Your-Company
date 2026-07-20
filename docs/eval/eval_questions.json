@@ -1,0 +1,602 @@
+[
+  {
+    "question": "What paid parental leave do employees in India receive?",
+    "expected_answer_summary": "India parental leave provides 26 weeks of paid leave per child using form HR-PL-2026.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "How many unused PTO days can carry forward?",
+    "expected_answer_summary": "Employees may carry forward 5 unused PTO days and the carryover expires on March 31.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "What is the standard weekly remote-work limit?",
+    "expected_answer_summary": "The standard remote-work limit is 3 days per week with manager approval.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "How long can international remote work last?",
+    "expected_answer_summary": "International remote work is capped at 15 business days and requires Legal and Payroll approval.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "What is the annual learning stipend?",
+    "expected_answer_summary": "The learning stipend is USD 1,200 annually after 90 days of employment.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "What monthly wellness reimbursement does Northstar offer?",
+    "expected_answer_summary": "Northstar reimburses USD 60 per month for wellness expenses.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "Which trainings are required in the first week?",
+    "expected_answer_summary": "New hires must complete privacy training, security training, and product training in the first week.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "When are formal performance reviews held?",
+    "expected_answer_summary": "Formal performance reviews happen in June and December, with quarterly manager check-ins.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "What response time is required for P0 incidents?",
+    "expected_answer_summary": "P0 incidents require a response in 15 minutes and must start in #incident-war-room.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md|eval_security_policy.pdf"
+  },
+  {
+    "question": "May contractors access production customer data by default?",
+    "expected_answer_summary": "Contractors must not access production customer data unless Security grants an exception.",
+    "tier": "factual",
+    "expected_source": "eval_hr_wiki.md"
+  },
+  {
+    "question": "How often is admin access reviewed?",
+    "expected_answer_summary": "Admin access is reviewed every 30 days.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "When do contractor tokens expire?",
+    "expected_answer_summary": "Contractor tokens expire after 14 days unless Security grants a written extension.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "Where must restricted data be stored?",
+    "expected_answer_summary": "Restricted data must be stored only in VaultLake.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "Which data classes are listed in the security policy?",
+    "expected_answer_summary": "The data classes are public, internal, confidential, and restricted.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "What is the client meal cap?",
+    "expected_answer_summary": "Client meals are capped at USD 75 per person.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "When are receipts required?",
+    "expected_answer_summary": "Receipts are required for expenses over USD 25 and must be submitted within 5 business days.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "What is required for vendors that handle customer data?",
+    "expected_answer_summary": "Customer-data vendors require a security review, signed DPA, risk tier, and named procurement owner.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "How long are payroll records retained?",
+    "expected_answer_summary": "Payroll records are retained for 7 years.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "How long are support tickets retained?",
+    "expected_answer_summary": "Support tickets are retained for 24 months unless Legal places a hold.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "When are P1 incident postmortems due?",
+    "expected_answer_summary": "P1 incidents require response in 1 hour and postmortems are due within 5 business days.",
+    "tier": "factual",
+    "expected_source": "eval_security_policy.pdf"
+  },
+  {
+    "question": "What is the laptop refresh cycle?",
+    "expected_answer_summary": "Laptop refresh is on a 36-month cycle.",
+    "tier": "factual",
+    "expected_source": "eval_slack_threads.json"
+  },
+  {
+    "question": "How quickly must stolen devices be reported?",
+    "expected_answer_summary": "Stolen devices must be reported to IT within 1 hour.",
+    "tier": "factual",
+    "expected_source": "eval_slack_threads.json"
+  },
+  {
+    "question": "When does Project Nimbus launch?",
+    "expected_answer_summary": "Project Nimbus launches on July 15, 2026.",
+    "tier": "factual",
+    "expected_source": "eval_slack_threads.json"
+  },
+  {
+    "question": "What is the Nimbus support macro name?",
+    "expected_answer_summary": "The support macro name is NIMBUS-GA-2026.",
+    "tier": "factual",
+    "expected_source": "eval_slack_threads.json"
+  },
+  {
+    "question": "What fixed the April API incident?",
+    "expected_answer_summary": "The April API incident was fixed by rolling back the rate limiter.",
+    "tier": "factual",
+    "expected_source": "eval_slack_threads.json"
+  },
+  {
+    "question": "For Asha Rao, what department is she in and what remote-work limit applies?",
+    "expected_answer_summary": "Asha Rao is in Engineering and the remote-work limit is 3 days per week with manager approval.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Ravi Patel, who is his manager and what P1 response time applies to support incidents?",
+    "expected_answer_summary": "Ravi Patel's manager is Meera Iyer and P1 incidents require response in 1 hour.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Mira Shah, where is she located and what approval is needed for international remote work?",
+    "expected_answer_summary": "Mira Shah is in Mumbai and international remote work needs Legal and Payroll approval.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md|eval_slack_threads.json"
+  },
+  {
+    "question": "For Grace Kim, what access role does she have and what is the client meal cap?",
+    "expected_answer_summary": "Grace Kim has finance access_role and client meals are capped at USD 75 per person.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "For Omar Haddad, what is his role title and when do contractor tokens expire?",
+    "expected_answer_summary": "Omar Haddad is a Contractor and contractor tokens expire after 14 days.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Sofia Garcia, what admin-related obligation applies to her access role?",
+    "expected_answer_summary": "Sofia Garcia has admin access_role and admin access is reviewed every 30 days.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Ethan Brooks, what benefit plan does he have and when is Nimbus sales enablement due?",
+    "expected_answer_summary": "Ethan Brooks has the Silver benefit plan and Nimbus sales enablement training is due July 10, 2026.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json"
+  },
+  {
+    "question": "For Nina Kapoor, what access role does she have and which source describes the wellness stipend?",
+    "expected_answer_summary": "Nina Kapoor has hr access_role and the wellness stipend is USD 60 per month.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md|eval_slack_threads.json"
+  },
+  {
+    "question": "For Wei Chen, what department is he in and what must customer-data vendors complete?",
+    "expected_answer_summary": "Wei Chen is in Legal and customer-data vendors need security review, DPA, risk tier, and procurement owner.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Noah Reed, how many PTO days does he have and how many PTO days can carry forward?",
+    "expected_answer_summary": "Noah Reed has 7 PTO days and up to 5 unused PTO days can carry forward.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Isha Nair, what is her access role and which formal review months apply?",
+    "expected_answer_summary": "Isha Nair has admin access_role and formal reviews happen in June and December.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Luis Romero, where is he located and what is the laptop refresh cycle?",
+    "expected_answer_summary": "Luis Romero is located in Madrid and laptop refresh is on a 36-month cycle.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json"
+  },
+  {
+    "question": "For Priya Das, what role title does she have and what is the client dinner reimbursement cap?",
+    "expected_answer_summary": "Priya Das is a Sales Director and client dinners are capped at USD 75 per person.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Arun Mehta, what visa support value is listed and what immigration support rule applies?",
+    "expected_answer_summary": "Arun Mehta has visa_support yes and should open a People Operations ticket before immigration-related travel.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Leila Mansour, what training due date is listed and what data class includes payroll exports?",
+    "expected_answer_summary": "Leila Mansour's training_due date is 2026-08-05 and payroll exports are restricted data.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "For Daniel Cho, what department is he in and how long are payroll records retained?",
+    "expected_answer_summary": "Daniel Cho is in Finance and payroll records are retained for 7 years.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf"
+  },
+  {
+    "question": "For Hannah Lim, who manages her and what vendor document must be signed?",
+    "expected_answer_summary": "Hannah Lim's manager is Wei Chen and customer-data vendors require a signed DPA.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "For Clara Evans, what department is she in and when does Project Nimbus launch?",
+    "expected_answer_summary": "Clara Evans is in Marketing and Project Nimbus launches on July 15, 2026.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json"
+  },
+  {
+    "question": "For Meera Iyer, how many PTO days does she have and when does carryover expire?",
+    "expected_answer_summary": "Meera Iyer has 12 PTO days and carryover expires on March 31.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Maya Stone, what access role does she have and where must restricted data stay?",
+    "expected_answer_summary": "Maya Stone has security access_role and restricted data must stay in VaultLake.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "For Jules Martin, where is he located and what approval is required for international remote work?",
+    "expected_answer_summary": "Jules Martin is located in Paris and international remote work requires Legal and Payroll approval.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md|eval_slack_threads.json"
+  },
+  {
+    "question": "For Nora Ali, what role title does she have and who owns the April API incident postmortem action?",
+    "expected_answer_summary": "Nora Ali is an SRE and Platform Reliability owns the April API incident postmortem action.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json"
+  },
+  {
+    "question": "For Mateo Cruz, what laptop refresh quarter is listed and what is the Nimbus support macro?",
+    "expected_answer_summary": "Mateo Cruz's laptop refresh quarter is Q4-2026 and the Nimbus support macro is NIMBUS-GA-2026.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_slack_threads.json"
+  },
+  {
+    "question": "For Rhea Singh, what access role does she have and which form is used for India parental leave?",
+    "expected_answer_summary": "Rhea Singh has hr access_role and India parental leave uses form HR-PL-2026.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_hr_wiki.md"
+  },
+  {
+    "question": "For Fatima Noor, what department is she in and what is required for vendors touching customer data?",
+    "expected_answer_summary": "Fatima Noor is in Security and vendors touching customer data require security review, DPA, risk tier, and procurement owner.",
+    "tier": "multi-hop",
+    "expected_source": "eval_hr_roster.csv|eval_security_policy.pdf|eval_slack_threads.json"
+  },
+  {
+    "question": "What department is Asha Rao in?",
+    "expected_answer_summary": "Asha Rao is in Engineering.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Who manages Ravi Patel?",
+    "expected_answer_summary": "Ravi Patel's manager is Meera Iyer.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Where is Mira Shah located?",
+    "expected_answer_summary": "Mira Shah is located in Mumbai.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What access role does Grace Kim have?",
+    "expected_answer_summary": "Grace Kim has finance access_role.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What role title does Omar Haddad have?",
+    "expected_answer_summary": "Omar Haddad has the Contractor role title.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What is Sofia Garcia's laptop refresh quarter?",
+    "expected_answer_summary": "Sofia Garcia's laptop refresh quarter is Q4-2026.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What benefit plan does Ethan Brooks have?",
+    "expected_answer_summary": "Ethan Brooks has the Silver benefit plan.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What is Nina Kapoor's access role?",
+    "expected_answer_summary": "Nina Kapoor has hr access_role.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What department is Wei Chen in?",
+    "expected_answer_summary": "Wei Chen is in Legal.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "How many PTO days does Noah Reed have?",
+    "expected_answer_summary": "Noah Reed has 7 PTO days.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Who manages Isha Nair?",
+    "expected_answer_summary": "Isha Nair's manager is CTO Office.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What location is Luis Romero in?",
+    "expected_answer_summary": "Luis Romero is located in Madrid.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What is Priya Das's role title?",
+    "expected_answer_summary": "Priya Das is a Sales Director.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What visa support value is listed for Arun Mehta?",
+    "expected_answer_summary": "Arun Mehta has visa_support yes.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What training due date is listed for Leila Mansour?",
+    "expected_answer_summary": "Leila Mansour's training_due date is 2026-08-05.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What benefit plan does Daniel Cho have?",
+    "expected_answer_summary": "Daniel Cho has the Platinum benefit plan.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Who manages Hannah Lim?",
+    "expected_answer_summary": "Hannah Lim's manager is Wei Chen.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What department is Clara Evans in?",
+    "expected_answer_summary": "Clara Evans is in Marketing.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "How many PTO days does Meera Iyer have?",
+    "expected_answer_summary": "Meera Iyer has 12 PTO days.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What access role does Maya Stone have?",
+    "expected_answer_summary": "Maya Stone has security access_role.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Where is Jules Martin located?",
+    "expected_answer_summary": "Jules Martin is located in Paris.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What role title does Nora Ali have?",
+    "expected_answer_summary": "Nora Ali is an SRE.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What laptop refresh quarter is listed for Mateo Cruz?",
+    "expected_answer_summary": "Mateo Cruz's laptop refresh quarter is Q4-2026.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "Who manages Rhea Singh?",
+    "expected_answer_summary": "Rhea Singh's manager is Nina Kapoor.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What department is Fatima Noor in?",
+    "expected_answer_summary": "Fatima Noor is in Security.",
+    "tier": "table-lookup",
+    "expected_source": "eval_hr_roster.csv"
+  },
+  {
+    "question": "What is Northstar's cafeteria menu for next Tuesday?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the company's 2027 acquisition target?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "How many shares of public stock does Northstar plan to buy back?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the office pet policy for iguanas?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the parental leave entitlement in Brazil?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "Which vendor won the 2025 office furniture RFP?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the CEO's personal mobile number?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the Kubernetes cluster root password?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the exact salary for every employee?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the company's Mars office address?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "Who won the Halloween costume contest in 2024?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the cafeteria coffee supplier contract value?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What are the board minutes from January 2030?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the private key for production TLS?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "Which employees own Bitcoin in their personal portfolios?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the policy for submarine commuting?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "How many parking spaces are reserved in Sydney?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What did the customer Acme Labs pay in Q2 revenue?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the roadmap for Project Orion?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "Which recruiter handled the CFO search?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the insurance policy number for the London office lease?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the exact code name for the next acquisition?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "How many catered lunches were ordered in Berlin last week?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "What is the immigration policy for Antarctica assignments?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  },
+  {
+    "question": "Which employees requested confidential medical leave last month?",
+    "expected_answer_summary": "The system should say it does not have enough information.",
+    "tier": "opinion/no-answer",
+    "expected_source": "none"
+  }
+]

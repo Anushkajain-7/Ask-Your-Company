@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AskTheCompany</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<div class="topnav">
+  <div class="brand"><div class="logo">🛡️</div> AskTheCompany</div>
+  <div class="workspace-pill" id="workspacePill">…</div>
+  <div class="nav-tabs">
+    <button data-tab="ask" class="active">💬 Ask</button>
+    <button data-tab="sources">📚 Sources</button>
+    <button data-tab="evaluations">📊 Evaluations</button>
+    <button data-tab="audit">🛡️ Audit Log</button>
+  </div>
+  <div class="avatar" id="avatarBtn">
+    <span id="avatarInitials">?</span>
+    <div class="user-menu hidden" id="userMenu">
+      <div class="info" id="userInfo"></div>
+      <button id="logoutBtn">Log out</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ASK TAB ============ -->
+<div class="tab-panel active" id="tab-ask">
+  <div class="layout">
+    <div class="panel" id="sourcesSidebar">
+      <h3>Sources</h3>
+      <div id="sourceList"></div>
+      <button class="secondary" id="goManageSources" style="width:100%;margin-top:6px;">⚙ Manage sources</button>
+    </div>
+
+    <div>
+      <div class="hero-title">Answers your team can verify.</div>
+      <div class="ask-box">
+        <textarea id="question" placeholder="What is our 2026 parental leave policy in India?"></textarea>
+        <div class="ask-box-footer">
+          <button class="primary" id="askBtn">🔒 Ask securely</button>
+        </div>
+      </div>
+
+      <div class="panel answer-card hidden" id="answerCard">
+        <div class="answer-label">✨ Answer</div>
+        <div class="answer-text" id="answerText"></div>
+        <div class="citation-badges" id="citationBadges"></div>
+
+        <div class="provenance-head">
+          <div style="font-weight:600;">🔗 Provenance</div>
+        </div>
+        <div id="provenanceList"></div>
+
+        <div class="meta-row">
+          <span id="generatedAt">Generated just now</span>
+          <span id="modelUsed">Model: AskTheCompany Hybrid RAG 1.0</span>
+        </div>
+      </div>
+      <div class="empty-state" id="askEmptyState">Ask a question above to see a grounded, cited answer.</div>
+    </div>
+
+    <div class="panel">
+      <div class="trust-block">
+        <div class="trust-title">🔒 Access checked</div>
+        <div class="trust-sub">Query and results authorized</div>
+        <div style="margin-top:14px;font-size:13px;color:var(--text-dim);">Workspace isolation</div>
+        <div style="margin-top:4px;font-size:14px;" id="isolationLine">—</div>
+      </div>
+      <div class="trust-block">
+        <div style="color:var(--text-dim);font-size:13px;">Confidence</div>
+        <div class="confidence-num" id="confidenceNum">—</div>
+        <div class="trust-sub" id="confidenceLabel"></div>
+        <div class="bar-track"><div class="bar-fill" id="confidenceBar" style="width:0%"></div></div>
+      </div>
+      <div class="trust-block">
+        <div style="font-weight:700;margin-bottom:10px;">Source coverage</div>
+        <div id="coverageList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SOURCES TAB ============ -->
+<div class="tab-panel" id="tab-sources">
+  <div class="layout" style="grid-template-columns: 1fr 1fr;">
+    <div class="panel">
+      <h3>Create a source</h3>
+      <div class="field"><label>Name</label><input type="text" id="newSourceName" placeholder="Wiki, PDFs, Slack, Sheets…" /></div>
+      <div class="field">
+        <label>Type</label>
+        <select id="newSourceType" style="width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <option value="markdown">Markdown / wiki pages (.md, .txt)</option>
+          <option value="pdf">PDF (.pdf — text or scanned)</option>
+          <option value="slack_json">Slack-style threads (.json)</option>
+          <option value="csv">Spreadsheet rows (.csv)</option>
+          <option value="xlsx">Spreadsheet rows (.xlsx)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Visible to role</label>
+        <select id="newSourceVisibility" style="width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;">
+          <option value="all">All roles</option>
+          <option value="admin">Admins only</option>
+          <option value="hr">HR role</option>
+          <option value="member">Members</option>
+        </select>
+      </div>
+      <button class="primary" id="createSourceBtn">+ Create source</button>
+      <div class="auth-error" id="sourceError"></div>
+    </div>
+    <div class="panel">
+      <h3>Upload a document</h3>
+      <div class="field">
+        <label>Target source</label>
+        <select id="uploadSourceSelect" style="width:100%;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;"></select>
+      </div>
+      <div class="field"><label>File</label><input type="file" id="uploadFile" /></div>
+      <button class="primary" id="uploadBtn">⬆ Upload &amp; ingest</button>
+      <div class="auth-error" id="uploadError"></div>
+      <div id="uploadedDocs" style="margin-top:16px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EVALUATIONS TAB ============ -->
+<div class="tab-panel" id="tab-evaluations">
+  <div class="layout" style="grid-template-columns: 1fr;">
+    <div class="panel">
+      <h3>Evaluation snapshot</h3>
+      <p style="color:var(--text-dim);font-size:14px;">
+        Live stats from this workspace's query history. For the full offline
+        eval methodology (100 Q&amp;A set, citation precision, RAGAS-style
+        scoring), see <code>/docs/eval_report.md</code> in the repo.
+      </p>
+      <div id="evalStats" style="display:flex;gap:24px;margin-top:16px;flex-wrap:wrap;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AUDIT LOG TAB ============ -->
+<div class="tab-panel" id="tab-audit">
+  <div class="layout" style="grid-template-columns: 1fr;">
+    <div class="panel">
+      <h3>Audit log</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="text-align:left;color:var(--text-dim);border-bottom:1px solid var(--border);">
+            <th style="padding:8px;">When</th><th style="padding:8px;">User</th>
+            <th style="padding:8px;">Question</th><th style="padding:8px;">Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="auditRows"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="/auth.js?v=demo-seed-1"></script>
+<script src="/app.js?v=demo-seed-1"></script>
+</body>
+</html>

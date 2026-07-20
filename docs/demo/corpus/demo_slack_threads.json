@@ -1,0 +1,29 @@
+{
+  "threads": [
+    {
+      "channel": "launch-ops",
+      "messages": [
+        {"user": "Priya", "text": "Project Atlas beta owner is Priya Shah. The beta starts September 9, 2026."},
+        {"user": "Marco", "text": "Launch freeze begins September 3 at 18:00 UTC and ends September 10 at 09:00 UTC."},
+        {"user": "Sam", "text": "Support alias for the beta is atlas-beta@demo-company.test."}
+      ]
+    },
+    {
+      "channel": "customer-success",
+      "messages": [
+        {"user": "Noor", "text": "Northwind renewal risk is yellow because procurement asked for a revised DPA."},
+        {"user": "Marco", "text": "Marco owns the Northwind follow-up and the due date is August 12, 2026."},
+        {"user": "Noor", "text": "CRM field renewal_risk should stay yellow until Legal approves the DPA."}
+      ]
+    },
+    {
+      "channel": "it-help",
+      "messages": [
+        {"user": "Luis", "text": "The VPN migration pilot starts August 19, 2026 with the Okta group vpn-pilot."},
+        {"user": "Sofia", "text": "Cisco AnyConnect remains available as rollback until September 30, 2026."},
+        {"user": "Luis", "text": "Pilot feedback should be collected in the #it-help channel."}
+      ]
+    }
+  ]
+}
+

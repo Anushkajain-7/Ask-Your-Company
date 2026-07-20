@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Log in — AskTheCompany</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h1>Welcome back</h1>
+    <p class="sub">Log in to ask your company anything.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label>Work email</label>
+        <input type="email" id="email" required placeholder="you@company.com" autocomplete="username" />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="password" required placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button type="submit" class="primary" style="width:100%">🔒 Log in securely</button>
+      <div class="auth-error" id="error"></div>
+    </form>
+    <div class="auth-switch">No account yet? <a href="/signup.html">Create one</a></div>
+  </div>
+</div>
+<script src="/auth.js?v=demo-seed-1"></script>
+<script>
+redirectIfAuthed();
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const errorEl = document.getElementById("error");
+  errorEl.textContent = "";
+  try {
+    const data = await api("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value,
+      }),
+    });
+    setSession(data.access_token, data.user_email, data.workspace_name);
+    window.location.href = "/index.html";
+  } catch (err) {
+    errorEl.textContent = err.message;
+  }
+});
+</script>
+</body>
+</html>

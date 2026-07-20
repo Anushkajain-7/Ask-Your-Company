@@ -1,0 +1,7 @@
+vendor,department,owner,monthly_spend_usd,renewal_date,status,approval_required,notes
+Nimbus Analytics,Finance,Aria Patel,8200,2026-09-30,active,CFO review,Finance forecasting platform
+Datadog,Engineering,Miguel Santos,12600,2026-11-15,active,CTO review,Observability and alerting
+HelpdeskPro,Support,Noor Malik,3400,2026-08-22,active,Support director review,Customer support ticketing
+OldCRM,Sales,Linh Tran,5100,2026-07-31,blocked,Legal review,Replaced by Northstar CRM
+Notion,People Ops,Elena Ruiz,1900,2027-01-10,active,Manager approval,Internal wiki and onboarding
+MailForge,Marketing,Sam Chen,2750,2026-10-05,active,Marketing director review,Campaign automation

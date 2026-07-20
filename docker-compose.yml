@@ -1,0 +1,9 @@
+services:
+  asktheco:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - backend/.env
+    volumes:
+      - ./data:/app/backend/data

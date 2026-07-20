@@ -1,0 +1,63 @@
+{
+  "n": 100,
+  "answer_accuracy": 0.64,
+  "citation_precision": 0.31,
+  "citation_recall": 0.6183,
+  "avg_confidence": 89.49,
+  "by_tier": {
+    "factual": {
+      "n": 25,
+      "answer_accuracy": 0.84,
+      "citation_precision": 0.4133,
+      "citation_recall": 0.98,
+      "avg_confidence": 89.03
+    },
+    "multi-hop": {
+      "n": 25,
+      "answer_accuracy": 0.8,
+      "citation_precision": 0.5133,
+      "citation_recall": 0.6533,
+      "avg_confidence": 92.05
+    },
+    "opinion/no-answer": {
+      "n": 25,
+      "answer_accuracy": 0,
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "avg_confidence": 91.9
+    },
+    "table-lookup": {
+      "n": 25,
+      "answer_accuracy": 0.92,
+      "citation_precision": 0.3133,
+      "citation_recall": 0.84,
+      "avg_confidence": 84.98
+    }
+  },
+  "confidence_calibration": [
+    {
+      "bucket": "70-80",
+      "n": 8,
+      "accuracy": 0.875,
+      "avg_confidence": 76.44
+    },
+    {
+      "bucket": "80-90",
+      "n": 35,
+      "accuracy": 0.8,
+      "avg_confidence": 86.35
+    },
+    {
+      "bucket": "90-100",
+      "n": 57,
+      "accuracy": 0.5088,
+      "avg_confidence": 93.25
+    }
+  ],
+  "scoring_method": "Deterministic keyword scoring over answer text plus citation previews; no LLM judge. Hugging Face token is disabled for reproducibility, so the app uses its offline embedding/generation fallback.",
+  "artifacts": {
+    "questions": "docs/eval/eval_questions.json",
+    "results": "docs/eval/eval_results_hybrid_only.json",
+    "corpus": "docs/eval/corpus"
+  }
+}

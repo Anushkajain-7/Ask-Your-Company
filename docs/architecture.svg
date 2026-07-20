@@ -1,0 +1,67 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, sans-serif">
+  <rect width="900" height="560" fill="#0a0f1e"/>
+  <text x="450" y="34" text-anchor="middle" fill="#e8ecf7" font-size="20" font-weight="700">AskTheCompany — Container Diagram (C4 Level 2)</text>
+
+  <!-- Browser -->
+  <rect x="40" y="70" width="200" height="110" rx="12" fill="#0f1730" stroke="#3b6cf6" stroke-width="1.5"/>
+  <text x="140" y="98" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700">Browser (SPA)</text>
+  <text x="140" y="120" text-anchor="middle" fill="#8b96b8" font-size="12">login.html / signup.html</text>
+  <text x="140" y="140" text-anchor="middle" fill="#8b96b8" font-size="12">index.html + app.js</text>
+  <text x="140" y="160" text-anchor="middle" fill="#8b96b8" font-size="12">JWT stored client-side</text>
+
+  <!-- FastAPI backend -->
+  <rect x="340" y="55" width="240" height="230" rx="12" fill="#0f1730" stroke="#34d399" stroke-width="1.5"/>
+  <text x="460" y="80" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700">FastAPI backend</text>
+
+  <rect x="360" y="95" width="200" height="34" rx="8" fill="#121b3a" stroke="#1e2a4a"/>
+  <text x="460" y="117" text-anchor="middle" fill="#e8ecf7" font-size="12">auth router (JWT, bcrypt)</text>
+
+  <rect x="360" y="136" width="200" height="34" rx="8" fill="#121b3a" stroke="#1e2a4a"/>
+  <text x="460" y="158" text-anchor="middle" fill="#e8ecf7" font-size="12">sources router (ingest)</text>
+
+  <rect x="360" y="177" width="200" height="34" rx="8" fill="#121b3a" stroke="#1e2a4a"/>
+  <text x="460" y="199" text-anchor="middle" fill="#e8ecf7" font-size="12">ask router (hybrid RAG)</text>
+
+  <rect x="360" y="218" width="200" height="55" rx="8" fill="#121b3a" stroke="#1e2a4a"/>
+  <text x="460" y="238" text-anchor="middle" fill="#e8ecf7" font-size="12">services: ingestion,</text>
+  <text x="460" y="255" text-anchor="middle" fill="#e8ecf7" font-size="12">retrieval, hf_client</text>
+
+  <!-- DB -->
+  <rect x="340" y="330" width="240" height="90" rx="12" fill="#0f1730" stroke="#f5a623" stroke-width="1.5"/>
+  <text x="460" y="356" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700">SQLite / Postgres</text>
+  <text x="460" y="378" text-anchor="middle" fill="#8b96b8" font-size="12">users, workspaces, sources,</text>
+  <text x="460" y="396" text-anchor="middle" fill="#8b96b8" font-size="12">documents, chunks (+embeddings), query_logs</text>
+
+  <!-- HF API -->
+  <rect x="640" y="55" width="220" height="120" rx="12" fill="#0f1730" stroke="#8b7cf6" stroke-width="1.5"/>
+  <text x="750" y="80" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700">Hugging Face</text>
+  <text x="750" y="80" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700" dy="0"></text>
+  <text x="750" y="102" text-anchor="middle" fill="#8b96b8" font-size="12">Inference API</text>
+  <text x="750" y="128" text-anchor="middle" fill="#8b96b8" font-size="12">feature-extraction (embeddings)</text>
+  <text x="750" y="148" text-anchor="middle" fill="#8b96b8" font-size="12">chat_completion (generation)</text>
+
+  <!-- Retrieval detail -->
+  <rect x="640" y="210" width="220" height="120" rx="12" fill="#0f1730" stroke="#f0554a" stroke-width="1.5"/>
+  <text x="750" y="235" text-anchor="middle" fill="#e8ecf7" font-size="14" font-weight="700">Hybrid retrieval</text>
+  <text x="750" y="258" text-anchor="middle" fill="#8b96b8" font-size="12">BM25 (rank_bm25, lexical)</text>
+  <text x="750" y="278" text-anchor="middle" fill="#8b96b8" font-size="12">+ dense cosine similarity</text>
+  <text x="750" y="298" text-anchor="middle" fill="#8b96b8" font-size="12">weighted fusion, workspace-scoped</text>
+
+  <!-- Arrows -->
+  <line x1="240" y1="125" x2="338" y2="125" stroke="#e8ecf7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="280" y="115" fill="#8b96b8" font-size="11">HTTPS + JWT</text>
+
+  <line x1="460" y1="285" x2="460" y2="328" stroke="#e8ecf7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="115" x2="638" y2="115" stroke="#e8ecf7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="580" y1="195" x2="638" y2="270" stroke="#e8ecf7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#e8ecf7" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="470" text-anchor="middle" fill="#8b96b8" font-size="12">Tenant isolation: every DB query is filtered by workspace_id at the ORM layer (see ADR-003).</text>
+  <text x="450" y="492" text-anchor="middle" fill="#8b96b8" font-size="12">Offline fallback: if HF_API_TOKEN is unset, hf_client.py degrades to a local hashing embedding</text>
+  <text x="450" y="512" text-anchor="middle" fill="#8b96b8" font-size="12">and an extractive answer, so the app still runs end-to-end for demos.</text>
+</svg>

@@ -1,0 +1,27 @@
+Demo Company Security Policy v2 Update
+
+Access management
+
+Multi-factor authentication is required for email, source control, production
+systems, customer data tools, and finance systems. Admin access is reviewed
+every 30 days by Security Operations. Contractor access tokens expire after 14
+days unless Security Operations grants a written exception.
+
+Data handling
+
+Production customer data may not be copied into personal laptops or personal
+cloud storage. Laptop disk encryption is mandatory. Secrets must be stored in
+1Password and must not be pasted into Slack, ticket comments, spreadsheets, or
+source code repositories.
+
+Vendor review
+
+New vendors that process customer data require a security review before
+purchase. Existing high-risk vendors require an annual SOC 2 or equivalent
+review. Security event logs are retained for 540 days.
+
+Incident response
+
+For a Sev1 incident, the incident commander must notify Security Operations
+within 15 minutes. The security channel of record is #security-incidents.
+

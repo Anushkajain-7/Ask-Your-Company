@@ -1,0 +1,57 @@
+{
+  "n": 100,
+  "answer_accuracy": 0.66,
+  "citation_precision": 0.345,
+  "citation_recall": 0.6583,
+  "avg_confidence": 93.86,
+  "by_tier": {
+    "factual": {
+      "n": 25,
+      "answer_accuracy": 0.88,
+      "citation_precision": 0.4133,
+      "citation_recall": 1.0,
+      "avg_confidence": 90.23
+    },
+    "multi-hop": {
+      "n": 25,
+      "answer_accuracy": 0.76,
+      "citation_precision": 0.5333,
+      "citation_recall": 0.6333,
+      "avg_confidence": 94.15
+    },
+    "opinion/no-answer": {
+      "n": 25,
+      "answer_accuracy": 0,
+      "citation_precision": 0.0,
+      "citation_recall": 0.0,
+      "avg_confidence": 95.76
+    },
+    "table-lookup": {
+      "n": 25,
+      "answer_accuracy": 1,
+      "citation_precision": 0.4333,
+      "citation_recall": 1.0,
+      "avg_confidence": 95.3
+    }
+  },
+  "confidence_calibration": [
+    {
+      "bucket": "80-90",
+      "n": 22,
+      "accuracy": 0.8636,
+      "avg_confidence": 88.16
+    },
+    {
+      "bucket": "90-100",
+      "n": 78,
+      "accuracy": 0.6026,
+      "avg_confidence": 95.47
+    }
+  ],
+  "scoring_method": "Deterministic keyword scoring over answer text plus citation previews; no LLM judge. Hugging Face token is disabled for reproducibility, so the app uses its offline embedding/generation fallback.",
+  "artifacts": {
+    "questions": "docs/eval/eval_questions.json",
+    "results": "docs/eval/eval_results.json",
+    "corpus": "docs/eval/corpus"
+  }
+}

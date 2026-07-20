@@ -1,0 +1,115 @@
+{
+  "threads": [
+    {
+      "channel": "people-ops",
+      "messages": [
+        {
+          "user": "rhea",
+          "text": "Reminder: domestic remote-work exceptions can be approved by managers."
+        },
+        {
+          "user": "sam",
+          "text": "International remote work still needs Legal and Payroll approval before travel."
+        },
+        {
+          "user": "rhea",
+          "text": "No customer data may be copied to personal laptops during remote work."
+        }
+      ]
+    },
+    {
+      "channel": "security-review",
+      "messages": [
+        {
+          "user": "maya",
+          "text": "Payroll exports are restricted data and must stay in VaultLake."
+        },
+        {
+          "user": "liam",
+          "text": "Security review is mandatory for any vendor touching customer data."
+        },
+        {
+          "user": "maya",
+          "text": "The DPA and procurement owner have to be recorded before launch."
+        }
+      ]
+    },
+    {
+      "channel": "finance-ops",
+      "messages": [
+        {
+          "user": "grace",
+          "text": "Client dinners are capped at USD 75 per person."
+        },
+        {
+          "user": "omar",
+          "text": "Receipts over USD 25 need to be uploaded within 5 business days."
+        }
+      ]
+    },
+    {
+      "channel": "it-helpdesk",
+      "messages": [
+        {
+          "user": "sofia",
+          "text": "Laptop refresh is on a 36-month cycle."
+        },
+        {
+          "user": "jules",
+          "text": "Stolen devices must be reported to IT within 1 hour."
+        },
+        {
+          "user": "sofia",
+          "text": "Temporary loaners are available during approved repairs."
+        }
+      ]
+    },
+    {
+      "channel": "product-launch",
+      "messages": [
+        {
+          "user": "mira",
+          "text": "Project Nimbus launches on July 15, 2026."
+        },
+        {
+          "user": "arun",
+          "text": "Sales enablement training for Nimbus is due July 10, 2026."
+        },
+        {
+          "user": "mira",
+          "text": "The support macro name is NIMBUS-GA-2026."
+        }
+      ]
+    },
+    {
+      "channel": "incident-war-room",
+      "messages": [
+        {
+          "user": "ravi",
+          "text": "The April API incident was classified as P1."
+        },
+        {
+          "user": "nora",
+          "text": "The immediate fix was rolling back the rate limiter."
+        },
+        {
+          "user": "ravi",
+          "text": "The postmortem action owner is Platform Reliability."
+        }
+      ]
+    },
+    {
+      "channel": "benefits-questions",
+      "messages": [
+        {
+          "user": "nina",
+          "text": "The wellness stipend is USD 60 per month."
+        },
+        {
+          "user": "ethan",
+          "text": "The learning stipend is USD 1,200 annually after 90 days."
+        }
+      ]
+    }
+  ]
+}
