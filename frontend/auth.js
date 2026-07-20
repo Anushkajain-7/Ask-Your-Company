@@ -30,7 +30,7 @@ async function api(path, options = {}) {
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
   const res = await fetch(API_BASE + path, { ...options, headers });
-  if (res.status === 401) {
+  if (res.status === 401 && path !== "/api/auth/login") {
     clearSession();
     window.location.href = "/login.html";
     throw new Error("Not authenticated");

@@ -50,6 +50,12 @@ class Settings:
     DATABASE_URL: str = _env("DATABASE_URL", f"sqlite:///{DATA_DIR}/asktheco.db")
     UPLOAD_DIR: Path = DATA_DIR / "uploads"
 
+    # --- Demo review workspace ---
+    ENABLE_DEMO_SEED: bool = _bool_env("ENABLE_DEMO_SEED", bool(os.getenv("VERCEL")))
+    DEMO_ADMIN_EMAIL: str = _env("DEMO_ADMIN_EMAIL", "admin@demo.com")
+    DEMO_ADMIN_PASSWORD: str = _env("DEMO_ADMIN_PASSWORD", "supersecret1")
+    DEMO_WORKSPACE_NAME: str = _env("DEMO_WORKSPACE_NAME", "Demo Company")
+
     # --- Retrieval tuning ---
     TOP_K: int = int(os.getenv("TOP_K", "6"))
     ENABLE_RERANKING: bool = _bool_env("ENABLE_RERANKING", True)

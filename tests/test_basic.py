@@ -23,6 +23,7 @@ from app.core.db import SessionLocal
 from app.core.security import create_access_token, hash_password
 from app.main import app
 from app.models import Chunk, Document, Source, User, Workspace
+from app.routers import auth as auth_router
 from app.services import retrieval
 from app.services.hf_client import generate_answer
 
@@ -57,6 +58,42 @@ def test_wrong_password_rejected():
     _signup(email="wrongpass@acme.com")
     r = client.post("/api/auth/login", json={"email": "wrongpass@acme.com", "password": "nope12345"})
     assert r.status_code == 401
+
+
+def test_demo_login_auto_seeds_when_enabled(monkeypatch):
+    demo_email = "autoseed-demo@example.com"
+    demo_workspace = "Auto Seed Demo Co"
+
+    def fake_ensure_demo_workspace(db):
+        workspace = Workspace(name=demo_workspace)
+        db.add(workspace)
+        db.flush()
+        user = User(
+            email=demo_email,
+            hashed_password=hash_password("supersecret1"),
+            full_name="Demo Admin",
+            role="admin",
+            workspace_id=workspace.id,
+        )
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+        return user
+
+    monkeypatch.setattr(settings, "ENABLE_DEMO_SEED", True)
+    monkeypatch.setattr(settings, "DEMO_ADMIN_EMAIL", demo_email)
+    monkeypatch.setattr(settings, "DEMO_ADMIN_PASSWORD", "supersecret1")
+    monkeypatch.setattr(settings, "DEMO_WORKSPACE_NAME", demo_workspace)
+    monkeypatch.setattr(auth_router, "ensure_demo_workspace", fake_ensure_demo_workspace)
+
+    r = client.post(
+        "/api/auth/login",
+        json={"email": demo_email, "password": "supersecret1"},
+    )
+
+    assert r.status_code == 200
+    assert r.json()["user_email"] == demo_email
+    assert r.json()["workspace_name"] == demo_workspace
 
 
 def test_unauthenticated_request_rejected():

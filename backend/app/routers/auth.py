@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.core.db import get_db
 from app.core.security import (
     create_access_token,
@@ -10,6 +11,7 @@ from app.core.security import (
 )
 from app.models import User, Workspace
 from app.schemas import LoginRequest, MeResponse, SignupRequest, TokenResponse
+from app.services.demo_seed import ensure_demo_workspace
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -41,7 +43,16 @@ def signup(payload: SignupRequest, db: Session = Depends(get_db)):
 
 @router.post("/login", response_model=TokenResponse)
 def login(payload: LoginRequest, db: Session = Depends(get_db)):
-    user = db.query(User).filter(User.email == payload.email).first()
+    email = payload.email.strip()
+    user = db.query(User).filter(User.email == email).first()
+    if (
+        settings.ENABLE_DEMO_SEED
+        and email.lower() == settings.DEMO_ADMIN_EMAIL.lower()
+        and (not user or not verify_password(payload.password, user.hashed_password))
+    ):
+        ensure_demo_workspace(db)
+        user = db.query(User).filter(User.email == settings.DEMO_ADMIN_EMAIL.lower()).first()
+
     if not user or not verify_password(payload.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Incorrect email or password")
     if not user.is_active:

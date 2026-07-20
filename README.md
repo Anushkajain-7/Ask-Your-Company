@@ -144,8 +144,17 @@ This repo includes `vercel.json`, `api/index.py`, root `requirements.txt`, and
    - `DATABASE_URL`: recommended for persistence. Use a free Postgres provider
      such as Neon or Supabase. Without this, Vercel uses temporary SQLite under
      `/tmp`, which can reset between serverless cold starts.
-   - Optional: `ENABLE_RERANKING=true`, `TOP_K=6`.
-5. Deploy, then seed the demo workspace if desired:
+   - Optional: `ENABLE_RERANKING=true`, `TOP_K=6`, `ENABLE_DEMO_SEED=true`.
+5. Deploy. On Vercel, `ENABLE_DEMO_SEED` defaults to true, so a fresh database
+   automatically gets the review workspace:
+
+```txt
+Email: admin@demo.com
+Password: supersecret1
+```
+
+The automatic seed creates 5 sources, 7 documents, and 20 evaluation-log
+questions. To seed or repair a non-Vercel deployment manually:
 
 ```bash
 ASKTHECOMPANY_BASE_URL=https://your-vercel-domain.vercel.app python scripts/seed_demo.py
