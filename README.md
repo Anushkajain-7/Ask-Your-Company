@@ -249,10 +249,6 @@ See `docs/adr/`:
 - **Near-duplicate review is automatic, but resolution is manual.** A likely
   revision is marked `needs_review` and excluded from retrieval until a human
   decides whether to keep it or supersede the prior document. (See ADR-006.)
-- **The offline fallback mode** (no `HF_API_TOKEN` set) uses a
-  non-semantic hashing embedding, lexical re-ranking fallback, and a
-  concise extractive answer, so the app never crashes without a key, but answer
-  quality is materially lower than with a real HF token configured.
 - **No-answer detection is weak.** The 100-question eval scored 0.0% on the
   no-answer tier because the current system retrieves the closest available
   passage instead of abstaining when relevance is too low.
