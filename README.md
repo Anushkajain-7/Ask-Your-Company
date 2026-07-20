@@ -130,6 +130,29 @@ Then log in as `admin@demo.com` with password `supersecret1`.
 docker compose up --build
 ```
 
+### Deploy on Vercel
+
+This repo includes `vercel.json`, `api/index.py`, root `requirements.txt`, and
+`.python-version` so Vercel can discover the FastAPI app. In Vercel:
+
+1. Import the GitHub repository.
+2. Keep **Root Directory** as the repository root.
+3. Keep **Framework Preset** as `Other` if Vercel asks.
+4. Add environment variables:
+   - `HF_API_TOKEN`: your Hugging Face token for live embeddings/generation.
+   - `JWT_SECRET`: a long random string.
+   - `DATABASE_URL`: recommended for persistence. Use a free Postgres provider
+     such as Neon or Supabase. Without this, Vercel uses temporary SQLite under
+     `/tmp`, which can reset between serverless cold starts.
+   - Optional: `ENABLE_RERANKING=true`, `TOP_K=6`.
+5. Deploy, then seed the demo workspace if desired:
+
+```bash
+ASKTHECOMPANY_BASE_URL=https://your-vercel-domain.vercel.app python scripts/seed_demo.py
+```
+
+The Vercel deployment URL should open the login page at `/login.html` or `/`.
+
 ### Test
 ```bash
 pip install pytest httpx

@@ -10,11 +10,12 @@ Then run:
 from __future__ import annotations
 
 from pathlib import Path
+import os
 
 import requests
 
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = os.getenv("ASKTHECOMPANY_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
 EMAIL = "admin@demo.com"
 PASSWORD = "supersecret1"
 WORKSPACE = "Demo Company"

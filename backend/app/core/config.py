@@ -2,7 +2,8 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = BASE_DIR / "data"
+DEFAULT_DATA_DIR = Path("/tmp/askthecompany") if os.getenv("VERCEL") else BASE_DIR / "data"
+DATA_DIR = Path(os.getenv("ASKTHECOMPANY_DATA_DIR", DEFAULT_DATA_DIR))
 DATA_DIR.mkdir(exist_ok=True)
 ENV_FILE = BASE_DIR / ".env"
 
@@ -29,7 +30,8 @@ def _bool_env(name: str, default: bool) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
-_load_dotenv(ENV_FILE)
+if not os.getenv("VERCEL"):
+    _load_dotenv(ENV_FILE)
 
 
 class Settings:
